@@ -2,8 +2,8 @@ const callback = () => {
   const macro = () => {
     document?.querySelector(".watch-video--skip-content-button")?.click();
 
-    document
-      ?.querySelector('[data-uia="next-episode-seamless-button"]')
+    [...document.querySelectorAll("span")]
+      ?.find((span) => span.textContent === "다음 화")
       ?.click();
 
     [...document.querySelectorAll("button")]
@@ -16,8 +16,6 @@ const callback = () => {
   };
 
   const observer = new MutationObserver(macro);
-
-  console.log(observer);
 
   observer.observe(document.body, {
     attributes: true,
